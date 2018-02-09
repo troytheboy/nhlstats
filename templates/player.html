@@ -1,0 +1,65 @@
+<head>
+  <link rel='stylesheet' type='text/css' href='../static/css/main.css'>
+</head>
+{% extends "bootstrap/base.html" %}
+{% block title %}{{player.team_name}}{% endblock %}
+{% block content %}
+<div class="jumbotron container-fluid">
+  <h1>{{player.fname}} {{player.lname}}</h1>
+  <p>Plays {{player.pos_id}}, Wears # {{player.jersey_num}} on <a href="/team/{{player.team_id}}">{{player.team_name}}</a></p>
+  <p>{{player.age}} years old, Height: {{player.height}}'', Weight: {{player.weight}}lbs, Shoots: {{player.hand}}</p>
+</div>
+
+<div class="panel-body">
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Stats</div>
+  <!-- table group -->
+  <table class="table table-hover" width='100%'>
+  	<thead>
+  	<tr>
+  		<th>Games Played</th>
+      <th>Goals</th>
+  		<th>Assists</th>
+      <th>First Assists</th>
+      <th>Points</th>
+      <th>Plus Minus</th>
+      <th>Shots</th>
+      <th>Missed</th>
+      <th>Blocked</th>
+      <th>Shooting %</th>
+      <th>TOI</th>
+      <th>TOI/G</th>
+      <th>TOI/Shift</th>
+      <th>Shifts</th>
+      <th>Shifts/G</th>
+      <th>Passes</th>
+      <th>Passes/60</th>
+  	</tr>
+  	</thead>
+  	<tbody>
+  		<tr>
+        <td>{{player.games_played}}</td>
+        <td>{{player.goals_made}}</td>
+        <td>{{player.assists_made}}</td>
+        <td>{{player.first_assists_made}}</td>
+  			<td>{{player.total_points_scored}}</td>
+        <td>{{player.plus_minus}}</td>
+        <td>{{player.total_shots_made}}</td>
+        <td>{{player.total_shots_missed}}</td>
+        <td>{{player.shots_taken_blocked}}</td>
+        <td>{{player.goals_per_shots}}</td>
+        <td>{{player.minutes_on_ice}}</td>
+        <td>{{player.minuites_on_ice_per_game}}</td>
+        <td>{{player.minutes_on_ice_per_shift}}</td>
+        <td>{{player.shifts}}</td>
+        <td>{{player.shifts_per_game}}</td>
+        <td>{{player.passes}}</td>
+        <td>{{player.passes_per_60}}</td>
+  		</tr>
+  </tbody>
+  </table>
+</div>
+
+{% endblock %}

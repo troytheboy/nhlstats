@@ -1,0 +1,14 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}Example Project: List of Shakespeare's Works{% endblock %}
+
+{% block content %}
+  <h1>Shakespeare's Works</h1>
+
+<div class="list-group">
+	{% for work in works %}
+    <h4 class="list-group-item-heading"><a href="/work/{{work.workid}}">{{work.longtitle}}</a></h4>
+    <p class="list-group-item-text">{{work.year}}, {{work.totalwords}}</p>
+	{% endfor %}
+</div>
+{% endblock %}

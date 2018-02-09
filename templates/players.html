@@ -1,0 +1,31 @@
+<head>
+  <link rel='stylesheet' type='text/css' href='../static/css/main.css'>
+</head>
+{% extends "bootstrap/base.html" %}
+{% block title %}{{team.team_name}}{% endblock %}
+
+{% block content %}
+<div class="jumbotron container-fluid">
+  <h1>{{team.team_name}}</h1>
+  <p>Founded in {{team.founded}}</p>
+  <p>{{team.city}}, {{team.state_prov}}</p>
+</div>
+
+<div class="panel-body">
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Players on {{team.team_name}}</div>
+  <!-- List group -->
+  <ul class="list-group">
+
+{% for player in players %}
+  <li class="list-group-item"><a href='/player/{{player.player_id}}'>{{player.fname}} {{player.lname}}</a>
+	<div class="well-sm">{{player.total_points_scored}} Points, {{player.goals_made}} Goals, {{player.age}} years old, {{player.grit}} Grit Factor</div>
+	</li>
+  </ul>
+{% endfor %}
+
+</div>
+
+{% endblock %}
